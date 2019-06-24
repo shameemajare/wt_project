@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>My Bookings</title>
+<!--
+Moonlight Template
+http://www.templatemo.com/tm-512-moonlight
+-->
+{%  load static %}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/fontAwesome.css' %}">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/light-box.css' %}">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/index.css' %}">
+        <link href="{% static 'meeting_room_booking/css/wickedpicker.css' %}" rel="stylesheet" type='text/css' media="all" />
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/jquery-ui.css' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+            <script src="{% static 'meeting_room_booking/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+        height: 80%;
+        font-size: 20px;
+        color: #ffffff;
+
+    }
+    table.table-striped tbody tr:nth-of-type(odd) {
+
+      color: #ffffff;
+	}
+    .table-wrapper {
+        height: 100%;
+        width: 70%;
+        padding: 1px;
+        margin: 10px 0;
+        overflow-x: hidden;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+</style>
+
+    </head>
+
+<body>
+
+    <div class="sequence">
+
+      <div class="seq-preloader">
+        <svg width="39" height="16" viewBox="0 0 39 16" xmlns="http://www.w3.org/2000/svg" class="seq-preload-indicator"><g fill="#F96D38"><path class="seq-preload-circle seq-preload-circle-1" d="M3.999 12.012c2.209 0 3.999-1.791 3.999-3.999s-1.79-3.999-3.999-3.999-3.999 1.791-3.999 3.999 1.79 3.999 3.999 3.999z"/><path class="seq-preload-circle seq-preload-circle-2" d="M15.996 13.468c3.018 0 5.465-2.447 5.465-5.466 0-3.018-2.447-5.465-5.465-5.465-3.019 0-5.466 2.447-5.466 5.465 0 3.019 2.447 5.466 5.466 5.466z"/><path class="seq-preload-circle seq-preload-circle-3" d="M31.322 15.334c4.049 0 7.332-3.282 7.332-7.332 0-4.049-3.282-7.332-7.332-7.332s-7.332 3.283-7.332 7.332c0 4.05 3.283 7.332 7.332 7.332z"/></g></svg>
+      </div>
+
+    </div>
+
+
+        <nav>
+          <div class="logo">
+              <img src="{% static 'meeting_room_booking/img/logo.png' %}" alt="">
+          </div>
+          <ul>
+            <li><a href="/toHome" ><i class="fa fa-home"></i> <em>Home</em></a></li>
+
+            <li><a href="/toBook"><i class="fa fa-user"></i> <em>Book A Room</em></a></li>
+            <li><a href="/myBook" style="background-color: #fff;
+  color: #232323;" class="active"><i class="fa fa-pencil"></i> <em>My Bookings</em></a></li>
+            <li><a href="/toCancel"><i class="fa fa-image"></i> <em>Cancel Booking</em></a></li>
+            <li><a href="#"><i class="fa fa-envelope"></i> <em>Log Out</em></a></li>
+          </ul>
+        </nav>
+
+        <div class="slides">
+         <div class="slide" id="3">
+            <div class="content third-content">
+                <h2> My Bookings </h2>
+                <div class="container-fluid" style="overflow-x: hidden;">
+                  <div class="container">
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th>Booking Id</th>
+                        <th>Date</th>
+                        <th>Time From</th>
+                        <th>Time To</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key,value in d.items %}
+                    <tr>
+                        
+                        <td>{{value.bookID}}</td>
+                        <td>{{value.date}}</td>
+                        <td>{{value.from_time}}</td>
+                        <td>{{value.to_time}}</td>
+                        <td>{{value.roomID.name}}</td>
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+          </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="footer">
+          <div class="content">
+             <p> <a href="/toAbout"> About Us </a> | <a href="/toFAQ">FAQ</a> | <a href="/toContact" > <i class="fa fa-envelope"></i> Contact Us</a> | <a href="/tofeedback"> Feedback </a> </p>
+          </div>
+        </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'meeting_room_booking/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')</script>
+
+    <script src="{% static 'meeting_room_booking/js/vendor/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'meeting_room_booking/js/datepicker.js' %}"></script>
+    <script src="{% static 'meeting_room_booking/js/plugins.js' %}"></script>
+    <script src="{% static 'meeting_room_booking/js/main.js' %}"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+
+
+        // navigation click actions
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 0;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+</body>
+</html>

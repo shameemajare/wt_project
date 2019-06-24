@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Sign Up</title>
+<!--
+Moonlight Template
+http://www.templatemo.com/tm-512-moonlight
+-->
+  {% load static %}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="{% static 'meeting_room_booking/apple-touch-icon.png' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/fontAwesome.css' %}">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/light-box.css' %}">
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/faq.css' %}">
+        <link href="{% static 'meeting_room_booking/css/wickedpicker.css' %}" rel="stylesheet" type='text/css' media="all" />
+        <link rel="stylesheet" href="{% static 'meeting_room_booking/css/jquery-ui.css' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <script src="{% static 'meeting_room_booking/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+          <style type="text/css">
+      .text1{
+    font-size: 15px;
+    color: #fff;
+    letter-spacing:3px;
+    padding: 3%;
+    padding-top: 25%;
+}
+    </style>
+    </head>
+
+<body>
+
+    <div class="sequence">
+
+      <div class="seq-preloader">
+        <svg width="39" height="16" viewBox="0 0 39 16" xmlns="http://www.w3.org/2000/svg" class="seq-preload-indicator"><g fill="#F96D38"><path class="seq-preload-circle seq-preload-circle-1" d="M3.999 12.012c2.209 0 3.999-1.791 3.999-3.999s-1.79-3.999-3.999-3.999-3.999 1.791-3.999 3.999 1.79 3.999 3.999 3.999z"/><path class="seq-preload-circle seq-preload-circle-2" d="M15.996 13.468c3.018 0 5.465-2.447 5.465-5.466 0-3.018-2.447-5.465-5.465-5.465-3.019 0-5.466 2.447-5.466 5.465 0 3.019 2.447 5.466 5.466 5.466z"/><path class="seq-preload-circle seq-preload-circle-3" d="M31.322 15.334c4.049 0 7.332-3.282 7.332-7.332 0-4.049-3.282-7.332-7.332-7.332s-7.332 3.283-7.332 7.332c0 4.05 3.283 7.332 7.332 7.332z"/></g></svg>
+      </div>
+
+    </div>
+
+
+        <nav>
+          <div class="logo">
+              <img src="{% static 'meeting_room_booking/img/logo.png' %}" alt="">
+          </div>
+          <br>
+          <p class=text1>You can ensure that spaces are booked fairly, that privacy and accountability are upheld for each user, and that double-bookings never happen!</p>
+        </nav>
+
+        <div class="slides">
+          <div class="slide" id="1">
+ <div class="content first-content"  style="font-size: 15px; color: #fff; letter-spacing:3px;">
+
+
+
+<form name='registration' method="get" onsubmit="return formValidation();" action="/signup">
+  <center>
+  <h2 style="font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 0px;"> SIGN UP</h2></center><br>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <label for="User Id">User Id</label>
+    <input type="text" class="form-control" name="uid" placeholder="User Id">
+    </div>
+    <div class="form-group col-md-6">
+    <label for="Name">Name</label>
+    <input type="text" class="form-control" name="name" placeholder="Name">
+    </div>
+   </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPhone">Phone Number</label>
+      <input type="text" class="form-control" name="phone" placeholder="Phone No.">
+    </div>
+  </div>
+  <div class="form-group col-md-12">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" name="address" placeholder="Pune">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="Department">Department</label>
+    </div>
+    <div class="form-group col-md-3">
+
+      <input type="text" class="form-control" name="Department" placeholder="Department">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="designation">Designation</label>
+    </div>
+    <div class="form-group col-md-3">
+      <input type="text" class="form-control" name="designation" placeholder="Designation">
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="password">Password</label>
+    </div>
+    <div class="form-group col-md-3">
+
+      <input type="password" class="form-control" required="true" name="password1">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="repassword">Re-enter Password</label>
+
+    </div>
+    <div class="form-group col-md-3">
+    <input type="password" class="form-control" required="true"  name="repassword">
+    </div>
+  </div>
+ <div align=center >
+<input type="submit" name="submit" value="Submit" />
+</div>
+</form>
+
+<a href="login.html" style="font-size: 15px;
+    color: #fff;
+    letter-spacing:3px;
+    padding: 3%;
+    padding-top: 25%;">Already a User? (Click Here)</a>
+
+
+
+
+
+
+</div>
+        </div>
+              </div>
+
+
+
+
+
+
+        <div class="footer">
+          <div class="content">
+              <p> Welcome! Please Log In to help us serve you better. </p>
+          </div>
+        </div>
+
+<script type="text/javascript">
+
+function formValidation()
+{
+var passid = document.registration.password1;
+var repassid = document.registration.repassword;
+var fname = document.registration.name;
+var lname = document.registration.uid;
+var uadd = document.registration.address;
+var phone1 = document.registration.phone;
+var designation = document.registration.designation;
+var department = document.registration.department;
+var uemail = document.registration.email;
+
+if(passid_validation(passid,repassid,7,12))
+{
+if(passvalidation())
+{
+if(allLetter(fname))
+{
+if(allLetter(lname))
+{
+if(allNumber(phone1))
+{
+if(alphanumeric(uadd))
+{
+if(allLetter(department))
+{
+if(allLetter(designation))
+{
+if(ValidateEmail(uemail))
+{
+}
+}
+}
+}
+}
+}
+}
+}
+}
+return false;
+}
+
+function passid_validation(passid,repassid,mx,my)
+{
+var passid_len = passid.value.length;
+var repassid_len = repassid.value.length;
+
+if (passid_len == 0 || passid_len >= my || passid_len < mx)
+{
+alert("Password should not be empty / length be between "+mx+" to "+my);
+document.registration.password.focus();
+return false;
+}
+if (repassid_len == 0 || repassid_len >= my || repassid_len < mx)
+{
+alert("Password should not be empty / length be between "+mx+" to "+my);
+document.registration.repassword.focus();
+return false;
+}
+return true;
+}
+
+function passvalidation()
+{
+var passid_val = document.registration.password1.value;
+var repassid_val = document.registration.repassword.value;
+console.log("Hello");
+if (passid_val == repassid_val)
+{
+  return true;
+}
+else
+{
+  alert("Passwords do not match");
+  return false;
+}
+}
+
+function allLetter(fname)
+{
+var letters = /^[A-Za-z]+$/;
+if(fname.value.match(letters))
+{
+return true;
+}
+else
+{
+alert('Name must have alphabet characters only');
+fname.focus();
+return false;
+}
+}
+function allNumber(phone1)
+{
+var numbers = /^[0-9]+$/;
+if(phone1.value.match(numbers))
+{
+return true;
+}
+else
+{
+alert('Phone no. must have numbers only');
+phone1.focus();
+return false;
+}
+}
+function alphanumeric(uadd)
+{
+var letters = /^[0-9a-zA-Z]+$/;
+if(uadd.value.match(letters))
+{
+return true;
+}
+else
+{
+alert('User address must have alphanumeric characters only');
+uadd.focus();
+return false;
+}
+}
+
+function ValidateEmail(uemail)
+{
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if(uemail.value.match(mailformat))
+  {
+  return true;
+  }
+  else
+  {
+  alert("You have entered an invalid email address!");
+  uemail.focus();
+  return false;
+  }
+}
+
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+       <script>window.jQuery || document.write('<script src="{% static 'meeting_room_booking/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')</script>
+
+    <script src="{% static 'meeting_room_booking/js/vendor/bootstrap.min.js'"></script>
+    <script src="{% static 'meeting_room_booking/js/datepicker.js' %}"></script>
+    <script src="{% static 'meeting_room_booking/js/plugins.js' %}"></script>
+    <script src="{% static 'meeting_room_booking/js/main.js' %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js %}" type="text/javascript"></script>
+
+</body>
+</html>
